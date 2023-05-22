@@ -6,7 +6,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formation Javascript ES6</title>
     <script>
+        let maVariable = null;
+        console.log(maVariable === undefined);
+        console.log(maVariable === null);
+
+        // avant es6
+        /*
+        var tableau = new Array('toto', 12, 13.2);
+        */
+
+        let tableau = ['toto', 12, 13.2];
+        console.log(tableau);
+        console.log(tableau.length);
+
+        let cars = ['Peugeot', 'Citroën', 'Renault'];
+        console.log(cars);
+
+        console.log(cars[1]);
+
+        cars[cars.length] = 'Ford';
+        console.log(cars);
+
+        cars.push('Toyota');
+        cars.push('Hyundai', 'Yahama');
+        console.log(cars);
+
+        console.log(`Le tableau cars contient ${cars.length} élément(s)`);
+        console.log(`L'index max du tableau cars est ${cars.length - 1} `);
+
+        // les tableaux sont l'équivalent d'objets itérable => que l'on peut parcourir
+        console.log('---------- boucle for ------------');
+        /*
+        algorithme
+        pour i à la valeur 0, jusqu'à i inférieur strictement à nombre d'élément du tableau cars, par pas de 1
+        // code de la boucle
+        fin pour
+        */
+       
+       for(let i = 0; i < cars.length; i = i + 1 ){
+           console.log(`à l'index ${i} du tableau cars, la valeur est ${cars[i]}`);
+        }
         
+        console.log('---------- boucle for (à l\'envers) ------------');
+        for(let i = cars.length-1; i >= 0; i = i - 1 ){
+           console.log(`à l'index ${i} du tableau cars, la valeur est ${cars[i]}`);
+        }
+        
+        console.log('---------- boucle for in ------------');
+        for(let index in cars){
+            console.log(`à l'index ${index} du tableau cars, la valeur est ${cars[index]}`);
+        }
+        
+        console.log('---------- boucle for of ------------');
+        for(let valeur of cars){
+            console.log(`la valeur actuelle dans cars est ${valeur}`);
+        }
+        
+        /* l'objet litéral */
+        let obj = {
+            nom: 'Sno',
+            prenom: 'Jon',
+            job: 'Le mur',
+            connaissance: function(){
+                return `you know nothing ${this.prenom} ${this.nom}`;
+            }
+        };
+        
+        console.log(obj);
+        console.log(obj.nom);
+        console.log(obj.connaissance());
+        
+        for(let clef in obj){
+            console.log(clef, obj[clef]);
+        }
+        
+        console.log('---------- boucle while ------------');
+        let cpt = 0;
+        while(cpt < cars.length){
+            console.log(cars[cpt]);
+            cpt = cpt + 1;
+        }
+        
+        console.log('---------- boucle do while ------------');
+        cpt = 0;
+        do{
+            console.log(cars[cpt]);
+            cpt = cpt + 1;
+        }while(cpt < cars.length ^ cars[cpt] === 'Ford')
+        
+        console.log('---------- boucle do while ------------');
+        cpt = 0;
+        do{
+            if(cars[cpt] === 'Ford'){
+                break;
+            }
+            console.log(cars[cpt]);
+            cpt = cpt + 1;
+        }while(cpt < cars.length)
+        
+        console.log('---------- méthode .map() ------------');
+        cars.map( function(valeur, index, tableau){
+            console.log(valeur, index, tableau);
+            /*if(valeur === 'Ford'){
+                tableau[index] = 'Fiat';
+            }*/
+            //tableau[index] = `marque : ${tableau[index]}`;
+        } );
+        
+        console.log('---------- méthode .forEach() ------------');
+        cars.forEach( function(valeur, index, tableau){
+            console.log(valeur, index, tableau);
+            /*if(valeur === 'Ford'){
+                tableau[index] = 'Fiat';
+            }*/
+            //tableau[index] = `marque : ${tableau[index]}`;
+        } );
+
+        cars.push('Fiat');
+
+        // supprimer une ou des valeurs d'un tableau 
+
     </script>
 </head>
 

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Javascript ES6</title>
+    <script>
+        // Commentaire en une ligne
+        /* 
+        commentaire en bloc
+        */
+        console.log('coucou, l\'apostrophe');
+        /* variables : déclaration de variables */
+        var prenom = 'Jean';
+        console.log(prenom);
+        console.log(typeof prenom);
+        
+        prenom = 12;
+        console.log(typeof prenom);
+        
+        prenom = 12 + 3;
+        console.log(prenom);
+        
+        prenom = 12 + 'toto';
+        console.log(prenom);
+        
+        prenom = 12 + parseFloat('3.1');
+        console.log(prenom);
+        
+        console.log('toto a ' + 12 + ' ans');
+        console.log(`toto a ${12 + 3} ans`);
+        console.log(`toto a ${prenom} ans`);
+
+        function test(){
+            let prenom = 'toto';
+            console.log('prenom : ', prenom);
+        }
+
+        test();
+        
+        console.log(prenom);
+
+        let nom = 'Neige';
+
+        prenom = 'Jean';
+        console.log(` l'apostrophe ${prenom} ${nom} `);
+
+        const LANGFR = 'FR-fr';
+        const LANGEN = 'EN-uk';
+        const LANGUS = 'EN-us';
+        const POUND = '£';
+        const DOLLAR = '$';
+        const EURO = '€';
+
+        console.log(` langue : ${LANGFR}, devise : ${POUND}`);
+        console.log(` langue : ${LANGUS}, devise : ${EURO}`);
+        console.log(` langue : ${LANGEN}, devise : ${DOLLAR}`);
+
+        /*
+        JS est un langage prototypé : défini par l'objet
+        */
+
+        
+        
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Formation Javascript</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                Bases
+                <ul>
+                    <li>
+                        <a href="../introduction/index.html">Intro</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/tableaux.html">Tableaux</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/fonctions.html">Fonctions</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/destructuration.html">Destructuration</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/storage.html">storage</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                DOM
+                <ul>
+                    <li>
+                        <a href="../dom/index.html">Le DOM</a>
+                    </li>
+                    <li>
+                        <a href="../dom/dom.html">Créer dans le DOM</a>
+                    </li>
+                    <li>
+                        <a href="../dom/css.html">DOM et CSS</a>
+                    </li>
+                    <li>
+                        <a href="../dom/data-attribute.html">Dataset</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                AJAX
+                <ul>
+                    <li>
+                        <a href="../ajax/index.html">AJAX</a>
+                    </li>
+                    <li>
+                        <a href="../ajax/bdd.html">AJAX et fetch</a>
+                    </li>
+                    <li>
+                        <a href="../ajax/promesse.html">Promesses</a>
+                    </li>
+                    <li>
+                        <a href="../ajax/fetch.html">Fetch</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <article>
+                <h2>Variables et opérateurs</h2>
+                <h3>Ecmascript</h3>
+                    <p>
+                        Ecmascript (es) est une norme sur laquelle s'appuie JS. (ActionScript => flash, TypeScript).
+                    </p>
+                    <p>
+                        La dernière norme ecmascript es7 (2017, très peu de différences avec es6)
+                    </p>
+                    <ul>
+                        <li>es1 - Juin 1997</li>
+                        <li>es2 - Juin 1998</li>
+                        <li>es2 - Décembre 1999</li>
+                        <li>es4 - version abandonnée</li>
+                        <li>es5 - Décembre 2009</li>
+                        <li>es6 - Juin 2015</li>
+                        <li>es7 - Juin 2016</li>
+                        <li>es8 - Juin 2017</li>
+                        <li>es9 - Juin 2018</li>
+                    </ul>
+                    <p>
+                        Jusqu'en 2010, JS était mal considéré par les développeurs ( peu normé, trop permissif )
+                    </p>
+                    <p>
+                        L'arrivée de Google Chrome, avec en plus l'envie de Google de refaire fonctionner correctement
+                        JS.
+                        Création du moteur d'interprétation V8.
+                        => un boost des capacitées de JS et son éxécution
+                    </p>
+                    <p>
+                        Grâce au V8, des nouveau langages ou méthode de développement sont arrivées, notemment NodeJs
+                        (2009),
+                        qui s'appuis sur JS mais s'éxécute sur le serveur
+                    </p>
+                    <p>
+                        La convention du code en es6 est visible sur Github
+                        <a href="https://github.com/elierotenberg/coding-styles/blob/master/es6.md" target="_blank">
+                            es6
+                        </a>
+                    </p>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>

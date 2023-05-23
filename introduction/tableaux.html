@@ -192,6 +192,34 @@
             }
         }
         
+        // recherche de la première occurence d'un élément / condition dans un tableau
+        console.log('--- recherche de la première occurence d\'un élément dans un tableau ---');
+        // .find()
+        let arrayNumber = [5, 8, 12, 130, 3, 44];
+
+        let found = arrayNumber.find( function(element){
+            /*
+            if(element > 20){
+                return element;
+            }
+            */
+            /*
+            if(element > 20)
+                return element;
+            */
+            return element > 20;
+        });
+
+        console.log(found);
+
+        // recherche de toutes les occurence d'un élément / condition dans un tableau
+        console.log('--- recherche de la première occurence d\'un élément / condition  dans un tableau ---');
+        // .filter()
+        let filtered = arrayNumber.filter( function(element){
+            return element > 20;
+        });
+
+        console.log(filtered);
     </script>
 </head>
 

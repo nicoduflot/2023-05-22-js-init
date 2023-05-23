@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Javascript ES6</title>
+    <script>
+        console.log('début du chargement de la page');
+        window.addEventListener('DOMContentLoaded', function(){
+            console.log('on lance le script après le chargement de la page');
+
+            /* on vérifie si sessionUserName existe déjà */
+            if(sessionStorage.getItem('sessionUserName')){
+                document.querySelector('span#datasession').innerHTML = sessionStorage.getItem('sessionUserName');
+            }
+
+            /* on récupère dans une variable l'objet qui représente le bouton avec l'id btnSession */
+            let btnSession = document.querySelector('#btnSession');
+
+            let btnSessionDelete = document.querySelector('#btnSessionDelete');
+            //console.log(btnSession);
+            /* on récupère l'élément de formulaire sessionUser */
+            let sessionUser = document.querySelector('#sessionUser');
+            /* on abonne btnSession à un écouteur d'évènement, l'évènement écouté est le click sur le bouton */
+
+            btnSession.addEventListener('click', function(){
+                //console.log('on a cliqué');
+                //console.log(sessionUser.value);
+                let inputValue = sessionUser.value;
+                sessionUser.value = '';
+                if(inputValue !== ''){
+                    sessionStorage.setItem('sessionUserName', inputValue);
+                    document.querySelector('span#datasession').innerHTML = sessionStorage.getItem('sessionUserName');
+                }
+            });
+
+            btnSessionDelete.addEventListener('click', function(){
+                if(sessionStorage.getItem('sessionUserName')){
+                    sessionStorage.removeItem('sessionUserName');
+                    document.querySelector('span#datasession').innerHTML = '';
+                }
+            });
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Formation Javascript</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                Bases
+                <ul>
+                    <li>
+                        <a href="../introduction/index.html">Intro</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/tableaux.html">Tableaux</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/fonctions.html">Fonctions</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/destructuration.html">Destructuration</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/storage.html">storage</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                DOM
+                <ul>
+                    <li>
+                        <a href="../dom/index.html">Le DOM</a>
+                    </li>
+                    <li>
+                        <a href="../dom/dom.html">Créer dans le DOM</a>
+                    </li>
+                    <li>
+                        <a href="../dom/css.html">DOM et CSS</a>
+                    </li>
+                    <li>
+                        <a href="../dom/data-attribute.html">Dataset</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                AJAX
+                <ul>
+                    <li>
+                        <a href="../ajax/index.html">AJAX</a>
+                    </li>
+                    <li>
+                        <a href="../ajax/bdd.html">AJAX et fetch</a>
+                    </li>
+                    <li>
+                        <a href="../ajax/promesse.html">Promesses</a>
+                    </li>
+                    <li>
+                        <a href="../ajax/fetch.html">Fetch</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <article>
+                <h2>Le stockage des données navigateur</h2>
+                <p>
+                    Il est possible de stocker les données sur le navigateur de trois façons :
+                </p>
+                <ul>
+                    <li>En session</li>
+                    <li>En local</li>
+                    <li>En local avec des cookies</li>
+                </ul>
+            </article>
+            <article>
+                <h2>sessionStorage</h2>
+                <p>
+                    <label>Username</label> 
+                    <input id="sessionUser" />
+                </p>
+                <p>
+                    <button id="btnSession">
+                        Enregistrer username en session
+                    </button>
+                </p>
+                <p>
+                    <button id="btnSessionDelete">
+                        Supprimer username de la session
+                    </button>
+                </p>
+                <p>
+                    Username actuel en session : <span id="datasession"></span>
+                </p>
+            </article>
+        </section>
+    </main>
+</body>
+<script>
+    console.log('le Dom est chargé');
+</script>
+</html>

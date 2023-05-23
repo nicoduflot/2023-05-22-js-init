@@ -81,11 +81,48 @@
             'tomate',
             'pêche',
             'banane',
-            'tomate'
+            'tomate',
+            'raisin',
+            'melon',
+            'melon'
         ];
 
         let tableauxDoublons = [];
 
+        /*
+        trier le tableau
+
+        créer le compteur de fruit initialisé à 1
+
+        pour chaque élément du tableau, 
+            si l'élément actuel est le même que le suivant alors
+                le compteur de fruit augmente de 1
+            sinon 
+                si le compteur de fruit est strictement supérieur à 1 alors
+                    on ajoute le fruit actuel et son nombre d'occurences dans le tableau des doublons 
+                fin si
+                le compteur de fruit repasse à 1
+            fin si
+        fin pour chaque            
+        
+        */
+
+        tableauDeFruits.sort();
+
+        let cptFruits = 1;
+
+        tableauDeFruits.map( function(element, index){
+            if(element === tableauDeFruits[index+1]){
+                cptFruits = cptFruits + 1;
+            }else{
+                if(cptFruits > 1){
+                    tableauxDoublons.push(`${element} est présent ${cptFruits} fois`);
+                }
+                cptFruits = 1;
+            }
+        });
+
+        console.log(tableauxDoublons);
     </script>
 </head>
 

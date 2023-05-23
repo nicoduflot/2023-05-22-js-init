@@ -123,6 +123,22 @@
         });
 
         console.log(tableauxDoublons);
+
+        let myMap = new Map();
+        console.log(myMap);
+        myMap.set('prenom', 'Nicolas');
+        console.log(myMap);
+        console.log(myMap.get('prenom'));
+
+        /* attention, ça n'est dans aucune documentation officielle */
+        let tabAsso = [];
+        tabAsso['prenom'] = 'Nicolas';
+        tabAsso['nom'] = 'Duflot';
+        tabAsso.push('Formateur');
+        tabAsso.push(43);
+        console.table(tabAsso);
+
+        /* fin attention */
     </script>
 </head>
 

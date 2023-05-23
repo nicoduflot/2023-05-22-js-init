@@ -121,10 +121,42 @@
             }*/
             //tableau[index] = `marque : ${tableau[index]}`;
         } );
-
+        
         cars.push('Fiat');
+        
+        // supprimer une ou des valeurs d'un tableau
+        console.log(cars);
+        console.log('---------- extraire / supprimer des valeurs ------------');
+        // extraire la dernière valeur d'un tableau .pop()
+        console.log('---------- extraire la dernière valeur .pop() ------------');
+        let lastEntry = cars.pop();
+        console.log(lastEntry, cars);
+        
+        // extraire la première valeur d'un tableau .shift()
+        console.log('---------- extraire la première valeur .shift() ------------');
+        let firstEntry = cars.shift();
+        console.log(firstEntry, cars);
 
-        // supprimer une ou des valeurs d'un tableau 
+        // extraire / ajouter / remplacer une ou des valeurs dans un tableau .splice()
+        console.log('---------- extraire / ajouter / remplacer une ou des valeurs dans un tableau .splice() ------------');
+        // .splice() 1 : extraire des valeurs du tableau
+        console.log('--- extractions sans remplacement ---');
+        console.log(cars.indexOf('Renault'));
+        //console.log('toto'.indexOf('o'));
+        //let test = 'toto'.split('').reverse().join('');
+        //console.log(test);
+        let removed = cars.splice(cars.indexOf('Renault'), 2);
+        console.log(removed, cars);
+        
+        // .splice() 2 : remplacer des valeurs extraites du tableau
+        console.log('--- extractions avec remplacement ---');
+        let replaced = cars.splice(cars.indexOf('Toyota'), 1, 'Alpine', 'Mazda');
+        console.log(replaced, cars);
+
+        // .splice() 3 : inserrer des valeurs dans le tableau
+        console.log('--- extractions avec remplacement ---');
+        cars.splice(cars.indexOf('Mazda'), 0, firstEntry, lastEntry, removed[0], removed[1], replaced[0]);
+        console.log(cars);
 
     </script>
 </head>

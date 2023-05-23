@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Javascript ES6</title>
+    <script>
+        /* une fonction : n'est pas rattachée à une classe */
+        let intNumber = parseInt('12'); // la chaîne de caractère 12 est transformée en nombre 12
+        /* une méthode : c'est une fonction déclarée dans une classe et utilisée via cette classe */
+        let deuxPuissanceTrois = Math.pow(2,3); // .pow() est une méthode de la classe Math
+
+        /* déclarer ses propres fonctions */
+        /* fonction sans paramètre */
+        function coucou(){
+            return 'coucou';
+        }
+        console.log(coucou());
+        /* fonction avec paramètre(s) */
+        function coucouMachin(prenom = 'Machin'){
+            return `coucou ${prenom}`;
+        }
+        console.log(coucouMachin());
+        console.log(coucouMachin('Nicolas'));
+        // opérateur variadique ...variable
+        function addition(...valeurs){
+            let resultat = 0;
+            for(nombre of valeurs){
+                resultat = resultat + nombre;
+            }
+            return resultat;
+        }
+        console.log(addition());
+        console.log(addition(1));
+        console.log(addition(1,2,3,4.5,5)); // [1,2,3,4.5,5]
+
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Formation Javascript</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                Bases
+                <ul>
+                    <li>
+                        <a href="../introduction/index.html">Intro</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/tableaux.html">Tableaux</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/fonctions.html">Fonctions</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/destructuration.html">Destructuration</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/storage.html">storage</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                DOM
+                <ul>
+                    <li>
+                        <a href="../dom/index.html">Le DOM</a>
+                    </li>
+                    <li>
+                        <a href="../dom/dom.html">Créer dans le DOM</a>
+                    </li>
+                    <li>
+                        <a href="../dom/css.html">DOM et CSS</a>
+                    </li>
+                    <li>
+                        <a href="../dom/data-attribute.html">Dataset</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                AJAX
+                <ul>
+                    <li>
+                        <a href="../ajax/index.html">AJAX</a>
+                    </li>
+                    <li>
+                        <a href="../ajax/bdd.html">AJAX et fetch</a>
+                    </li>
+                    <li>
+                        <a href="../ajax/promesse.html">Promesses</a>
+                    </li>
+                    <li>
+                        <a href="../ajax/fetch.html">Fetch</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <article>
+                <h2>Les fonctions</h2>
+                <p>
+                    Tout est dans la console
+                </p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

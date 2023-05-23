@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Javascript ES6</title>
+    <script>
+        let liste = [1, 2, 3, 4];
+        /* 
+        assigner les valeurs de la liste aux variables a, b et c
+        */
+
+        /*
+        let a = liste[0];
+        let b = liste[1];
+        let c = liste[2];
+        */
+
+        let [a, b, c] = liste;
+        console.log(`a = ${a}, b = ${b}, c = ${c}`);
+        
+        let [d, , f, g] = liste;
+        console.log(`d = ${d}, f = ${f}, g = ${g}`);
+        
+        let [h, i, j, k = 0, l = 5] = liste;
+        console.log(`h = ${h}, i = ${i}, j = ${j}, k = ${k}, l = ${l}`);
+
+        /* inverser les valeurs des variables suivantes */
+        
+        let val01 = 12;
+        let val02 = 42;
+
+        /*
+        let valTampon = val01;
+        val01 = val02;
+        val02 = valTampon;
+        */
+        console.log(`avant échange val01 : ${val01}, val02 : ${val02}`);
+        [val01, val02] = [val02, val01];
+        console.log(`après échange val01 : ${val01}, val02 : ${val02}`);
+
+        let objet = {
+            lastName: 'Bond',
+            firstName: 'James',
+            job: 'Agent Secret',
+            helloBond: function(name = 'Moneypenny'){
+                return `Hello ${name}`;
+            }
+        };
+        console.log(objet.firstName);
+        console.log(objet.lastName);
+        console.log(objet.helloBond());
+        let {firstName, lastName, helloBond} = objet;
+
+        console.log(firstName);
+        console.log(lastName);
+        console.log(helloBond());
+        
+        let {
+            firstName: prenom, 
+            lastName: nom,
+            helloBond: salutation
+        } = objet;
+        
+        console.log(prenom);
+        console.log(nom);
+        console.log(salutation());
+
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Formation Javascript</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                Bases
+                <ul>
+                    <li>
+                        <a href="../introduction/index.html">Intro</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/tableaux.html">Tableaux</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/fonctions.html">Fonctions</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/destructuration.html">Destructuration</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/storage.html">storage</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                DOM
+                <ul>
+                    <li>
+                        <a href="../dom/index.html">Le DOM</a>
+                    </li>
+                    <li>
+                        <a href="../dom/dom.html">Créer dans le DOM</a>
+                    </li>
+                    <li>
+                        <a href="../dom/css.html">DOM et CSS</a>
+                    </li>
+                    <li>
+                        <a href="../dom/data-attribute.html">Dataset</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                AJAX
+                <ul>
+                    <li>
+                        <a href="../ajax/index.html">AJAX</a>
+                    </li>
+                    <li>
+                        <a href="../ajax/bdd.html">AJAX et fetch</a>
+                    </li>
+                    <li>
+                        <a href="../ajax/promesse.html">Promesses</a>
+                    </li>
+                    <li>
+                        <a href="../ajax/fetch.html">Fetch</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <article>
+                <h2>La destructuration</h2>
+                <p>
+                    C'est un mode d'assignation de variables et d'objets
+                </p>
+                <p>
+                    Tout est dans la console
+                </p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

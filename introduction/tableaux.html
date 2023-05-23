@@ -154,10 +154,44 @@
         console.log(replaced, cars);
 
         // .splice() 3 : inserrer des valeurs dans le tableau
-        console.log('--- extractions avec remplacement ---');
+        console.log('--- insertion de valeurs ---');
         cars.splice(cars.indexOf('Mazda'), 0, firstEntry, lastEntry, removed[0], removed[1], replaced[0]);
         console.log(cars);
+        
+        console.log('--- copier un tableu ou une série de valeur d\'un tableau dans un autre tableau ---');
+        let carsClone = cars.slice(2, 5);
+        console.log(cars, carsClone);
+        carsClone.pop();
+        console.log(cars, carsClone);
+        console.log('--- tableaux 2d ----');
+        // les tableaux à 2 dimensions
+        let carsYear = [
+            ['Fiat', 1956],
+            ['Kya', 1995],
+            ['Kya', 1990],
+            ['Ford', 1950],
+            ['12', '2001', 123],
+            ['12', '0250']
+        ];
+        
+        console.table(cars);
+        console.table(carsYear);
+        carsYear.sort();
+        console.table(carsYear);
+        
+        console.table(carsYear[3]);
+        console.log(carsYear[3][1]);
+        
+        // parcourir un tableau 2d
+        console.log('--- parcour tableaux 2d ----');
+        // utilisation de for imbriqués
 
+        for(let i = 0; i < carsYear.length; i = i + 1){
+            for(let j = 0; j < carsYear[i].length; j = j + 1){
+                console.log(carsYear[i][j]);
+            }
+        }
+        
     </script>
 </head>
 

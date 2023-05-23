@@ -56,7 +56,7 @@
         console.log(firstName);
         console.log(lastName);
         console.log(helloBond());
-        
+
         let {
             firstName: prenom, 
             lastName: nom,
@@ -66,6 +66,28 @@
         console.log(prenom);
         console.log(nom);
         console.log(salutation());
+
+        let heros1 = {
+            nom: 'Lecanard',
+            prenom: 'Herbert',
+            coupSpecial: function(){
+                return 'Pichenette';
+            }
+        }
+
+        let heros2 = {
+            nom: 'LeDragon',
+            prenom: 'Marvin',
+            coupSpecial: function(){
+                return 'Tong deum !';
+            }
+        }
+
+        console.log('heros1',heros1.coupSpecial(), 'heros2', heros2.coupSpecial());
+
+        [heros1.coupSpecial, heros2.coupSpecial] = [heros2.coupSpecial, heros1.coupSpecial];
+        
+        console.log('heros1',heros1.coupSpecial(), 'heros2', heros2.coupSpecial());
 
     </script>
 </head>

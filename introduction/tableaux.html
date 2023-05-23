@@ -177,6 +177,7 @@
         console.table(cars);
         console.table(carsYear);
         carsYear.sort();
+        // attention, sort() transforme les données nombre en chaîne de caractère et tri par ordre alphabétique
         console.table(carsYear);
         
         console.table(carsYear[3]);
@@ -213,13 +214,38 @@
         console.log(found);
 
         // recherche de toutes les occurence d'un élément / condition dans un tableau
-        console.log('--- recherche de la première occurence d\'un élément / condition  dans un tableau ---');
+        
+        console.log('--- recherche de toutes les occurences d\'un élément / condition  dans un tableau ---');
         // .filter()
+        /*
         let filtered = arrayNumber.filter( function(element){
             return element > 20;
         });
+        */
+        let filtered = arrayNumber.filter( (element)=>element > 20);
 
         console.log(filtered);
+
+        /* conséquences */
+
+        console.log('---- les conséquences (opérateur flèche ou arrow operator) ----');
+        let monObjet = {
+            number: [5, 8, 12, 130, 3, 44],
+            affTab: function(){
+                console.log(this);
+                // conséquence sans l'opérateur flèche on perd la référence this de l'objet
+                this.number.forEach( function(element){
+                    console.log(this);
+                });
+                //avec l'opérateur flèche, on conserve la référence this de l'objet
+                this.number.forEach( (element)=>{
+                    console.log(this);
+                });
+            }
+        };
+        
+        monObjet.affTab();
+
     </script>
 </head>
 
@@ -296,5 +322,4 @@
         </section>
     </main>
 </body>
-
 </html>

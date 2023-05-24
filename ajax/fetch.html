@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Javascript ES6</title>
+    <script src="../js/functions.js"></script>
+    <script>
+        loaded( function(){
+            
+        } );
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Formation Javascript</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                Bases
+                <ul>
+                    <li>
+                        <a href="../introduction/index.html">Intro</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/tableaux.html">Tableaux</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/fonctions.html">Fonctions</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/destructuration.html">Destructuration</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/storage.html">storage</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                DOM
+                <ul>
+                    <li>
+                        <a href="../dom/index.html">Le DOM</a>
+                    </li>
+                    <li>
+                        <a href="../dom/dom.html">Créer dans le DOM</a>
+                    </li>
+                    <li>
+                        <a href="../dom/css.html">DOM et CSS</a>
+                    </li>
+                    <li>
+                        <a href="../dom/data-attribute.html">Dataset</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                AJAX
+                <ul>
+                    <li>
+                        <a href="../ajax/index.html">AJAX</a>
+                    </li>
+                    <li>
+                        <a href="../ajax/fetch.html">Fetch</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <section style="display: flex; flex-wrap: wrap;justify-content: space-between;">
+            <div style="width: calc( 98% - 200px );">
+                <article>
+                    <header>
+                        <h2>
+                            AJAX - Fetch
+                        </h2>
+                    </header>
+                    <main>
+                        <h3>xhr : Xml Http Request</h3>
+                        <p>
+                            <button class="read" data-url="../resource/users.json">
+                                Users.json
+                            </button>
+                            <button class="read" data-url="../resource/bdd.json">
+                                bdd.json
+                            </button>
+                            <button class="read" data-url="../resource/posts.json">
+                                posts.json
+                            </button>
+                            <button class="readNYT" data-url="https://api.nytimes.com/svc/movies/v2/reviews/all.json?api-key=ig9jmatc6vzPGucCPAC9aK9v0xxGDdkL">
+                                movie re nyt
+                            </button>
+                            <button class="read" data-url="../resources/users.json">
+                                Users.json erreur
+                            </button>
+                            <button class="read" data-url="../resources/bdd.json">
+                                bdd.json erreur
+                            </button>
+                        </p>
+                    </main>
+                </article>
+            </div>
+            <div style="width: 200px;">
+                <article>
+                    <header>
+                        <h2>Suggestion utilisateurs</h2>
+                    </header>
+                    <main>
+                        <h3>Utilisateur dans users</h3>
+                        <p>
+                            <input type="text" id="searchUser" value="" />
+                        </p>
+                    </main>
+                </article>
+            </div>
+            </div>
+        </section>
+        <section style="display: flex; flex-wrap: wrap;justify-content: space-around;">
+            <div style="width: 90%;">
+                <article>
+                    <table id="result">
+                        <thead>
+
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+<script>
+    console.log('le Dom est chargé');
+</script>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Javascript ES6</title>
+    <script src="../js/functions.js"></script>
+    <script>
+        loaded( function(){
+            
+        } );
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Formation Javascript</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                Bases
+                <ul>
+                    <li>
+                        <a href="../introduction/index.html">Intro</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/tableaux.html">Tableaux</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/fonctions.html">Fonctions</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/destructuration.html">Destructuration</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/storage.html">storage</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                DOM
+                <ul>
+                    <li>
+                        <a href="../dom/index.html">Le DOM</a>
+                    </li>
+                    <li>
+                        <a href="../dom/dom.html">Créer dans le DOM</a>
+                    </li>
+                    <li>
+                        <a href="../dom/css.html">DOM et CSS</a>
+                    </li>
+                    <li>
+                        <a href="../dom/data-attribute.html">Dataset</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                AJAX
+                <ul>
+                    <li>
+                        <a href="../ajax/index.html">AJAX</a>
+                    </li>
+                    <li>
+                        <a href="../ajax/fetch.html">Fetch</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <div>
+                <article>
+                    <header>
+                        <h2>AJAX - Asynchronous JavaScript and Xml</h2>
+                    </header>
+                    <main>
+                        <h3>Promesses</h3>
+                        
+                        <p>
+                            Les promesse c'est une façon de "lancer" une fonction en mode asynchrone :
+                            son exécution se fait sans "blocage" de la page : on n'attend pas le retour de la
+                            fonction pour continuer le script car on la déclare "en attente de réponse", et quand
+                            son traitement est fini c'est à ce moment que le retour intervient
+                        </p>
+                        <p>
+                            <button id="btn">
+                                Récupérer une info
+                            </button>
+                            <button id="btnTest">
+                                Afficher coucou en console
+                            </button>
+                        </p>
+                        <p id="result">
+
+                        </p>
+                    </main>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+<script>
+    console.log('le Dom est chargé');
+</script>
+</html>

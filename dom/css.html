@@ -8,19 +8,10 @@
     <script src="../js/functions.js"></script>
     <script>
         loaded( function(){
-            console.log('coucou, la fonction loaded marche bien !');
-            let header = s('body > header');
-            console.log(header);
-            let allLinks = sAll('a');
-            console.log(allLinks);
-            //let navLinks = $('body > nav a');
-            //console.log(navLinks);
-            //console.log($('body > header'));
-            // body > nav a
-            // h1
-
+            
         } );
     </script>
+    
 </head>
 <body>
     <header>
@@ -79,57 +70,51 @@
         </ul>
     </nav>
     <main>
-        <>
+        <section>
             <article>
                 <header>
-                    <h2 class="titreDeChapitre">Le DOM : Document Object Model</h2>
+                    <h2>Agir sur le CSS</h2>
                 </header>
                 <main>
-                    <p>
-                        le <b>DOM</b> nous permet de repérer, analyser, modifier et
-                        supprimer des éléments de la page HTML
+                    <button id="btn">
+                        Ajouter de la couleur
+                    </button>
+                    <p id="cible">
+                        Lorem ipsum dolor sit, amet consectetur
+                        adipisicing elit. Numquam explicabo
+                        deleniti beatae dolores quisquam esse,
+                        dolorum atque architecto repellat quo ad
+                        earum laudantium tenetur quidem aliquid
+                        rem quos voluptatibus a?
                     </p>
-                    <p>
-                        Il faut que tous les éléments soient chargés pour qu'il soit
-                        possible d'agir sur eux avec JS.
-                        On écoute l'évènement de la fenêtre DOMContentLoaded qui survient
-                        quand la page est totalement chargée.
-                    </p>
-                    <p>
-                        <button class="testez-moi">Testez-moi</button>
-                    </p>
-                    <h3 class="titreDeChapitre">Agir sur le DOM</h3>
-                    <ul>
-                        <li>Connaître l'élément surveillé l'élément du DOM, de la page</li>
-                        <li>Connaître l'événement écouté : le déclencheur</li>
-                    </ul>
-                    <p>
-                        <button id="checkP">
-                            Tester les paragraphes
+                    <divrole="group">
+                        <button id="btnClasse">
+                            Ajouter de la couleur en classe
                         </button>
+                        <button id="btnClasseBg">
+                            Ajouter un background
+                        </button>
+                    </divrole=>
+
+                    <p id="cibleClasse" class="times">
+                        Lorem ipsum dolor sit, amet consectetur
+                        adipisicing elit. Numquam explicabo
+                        deleniti beatae dolores quisquam esse,
+                        dolorum atque architecto repellat quo ad
+                        earum laudantium tenetur quidem aliquid
+                        rem quos voluptatibus a?
                     </p>
-                    <div id="showP">
+                    <prole="group">
+                        <button type="button" class="btn btn-primary" id="gauche">Gauche</button>
+                        <button type="button" class="btn btn-primary" id="centre">Centre</button>
+                        <button type="button" class="btn btn-primary" id="droite">Droite</button>
+                    </prole=>
+                    <div id="carre">
 
                     </div>
-                    <p id="special">
-                        Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit.
-                        Nihil hic numquam magnam ullam,
-                        ea odio illo doloremque molestias
-                        accusamus corporis corrupti doloribus
-                        ab! Mollitia provident quibusdam libero,
-                        fugit a perferendis.
-                    </p>
-                    <figure>
-                        <img src="../images/pip-boy-thumb-down.png" alt="Pip boy sans le bras droit" width="200"
-                            id="imgOver" />
-                        <figcaption>
-                            Pip boy sans le bras droit
-                        </figcaption>
-                    </figure>
                 </main>
             </article>
-        </
+        </section>
     </main>
 </body>
 <script>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Javascript ES6</title>
+    <script src="../js/functions.js"></script>
+    <script>
+        loaded( function(){
+            
+        } );
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Formation Javascript</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                Bases
+                <ul>
+                    <li>
+                        <a href="../introduction/index.html">Intro</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/tableaux.html">Tableaux</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/fonctions.html">Fonctions</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/destructuration.html">Destructuration</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/storage.html">storage</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                DOM
+                <ul>
+                    <li>
+                        <a href="../dom/index.html">Le DOM</a>
+                    </li>
+                    <li>
+                        <a href="../dom/dom.html">Créer dans le DOM</a>
+                    </li>
+                    <li>
+                        <a href="../dom/css.html">DOM et CSS</a>
+                    </li>
+                    <li>
+                        <a href="../dom/data-attribute.html">Dataset</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                AJAX
+                <ul>
+                    <li>
+                        <a href="../ajax/index.html">AJAX</a>
+                    </li>
+                    <li>
+                        <a href="../ajax/fetch.html">Fetch</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <article>
+                <header>
+                    <h2>Créer dans le DOM</h2>
+                </header>
+                <main>
+                    <p>
+                        <button id="addSpan">
+                            Ajouter span testSpan
+                        </button>
+                        <button id="resetIndex">
+                            reset index span
+                        </button>
+                    </p>
+                    <p id="test">
+
+                    </p>
+                </main>
+            </article>
+        </section>
+        <section>
+            <article>
+                <header>
+                    <h2>To do list</h2>
+                </header>
+                <main>
+                    <div class="wrapperToDo">
+                        <div id="createItemList">
+                            <h3>Éléments de la liste a renseigner</h3>
+                            <p>
+                                <input type="text" id="item" />
+                            </p>
+                            <p>
+                                <button id="addItemBtn">
+                                    Ajouter
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                </main>
+            </article>
+            <article>
+                <header>
+                    <h2>Ma liste</h2>
+                </header>
+                <main>
+                    <div id="list">
+                        <ul id="toDoList" class="list-group">
+
+                        </ul>
+                    </div>
+                </main>
+            </article>
+        </section>
+        <section>
+            <article>
+                <header>
+                    <h2>PreventDefault()</h2>
+                </header>
+                <main>
+                    <p>
+                        Le PreventDefault permet d'arrêter le comportement
+                        automatique de certaines actions, notemment les submit de formulaires,
+                        mais aussi le comprtement normal d'un lien.
+                    </p>
+                    <form id="testPreventDefault" method="get" action="">
+                        <fieldset>
+                            <legend>Civilité</legend>
+                            <p>
+                                <label>
+                                    Nom
+                                </label>
+                                <input type="text" name="nom" />
+                            </p>
+                            <p>
+                                <label>
+                                    Prénom
+                                </label>
+                                <input type="text" name="prenom" />
+                            </p>
+                        </fieldset>
+                        <p>
+                            <button type="submit">
+                                Soumettre le formulaire
+                            </button>
+                        </p>
+                    </form>
+                </main>
+            </article>
+        </section>
+    </main>
+</body>
+<script>
+    console.log('le Dom est chargé');
+</script>
+</html>

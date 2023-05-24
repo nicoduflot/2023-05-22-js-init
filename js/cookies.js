@@ -28,3 +28,19 @@ function setCookie(name, value = '', days = -1, path = '/', samesite = 'Strict',
     document.cookie = `${name}=${value}; max-age=${maxAge}; path=${path}; Samesite=${samesite}; ${secure}`;
 }
 
+function getCookie(name){
+    let tabCookie = document.cookie.split('; ');
+    for(cookie of tabCookie){
+        let tabValue = cookie.split('=');
+        if(tabValue[0] === name){
+            return tabValue[1];
+        }
+    }
+    return false;
+}
+/*
+setCookie('test', 'toto', 1);
+setCookie('test2', 'toto2', 1);*/
+console.log(document.cookie);
+console.log(getCookie('test'));
+console.log(getCookie('jean'));

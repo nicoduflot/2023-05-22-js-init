@@ -20,6 +20,73 @@
             // body > nav a
             // h1
 
+            document.addEventListener('click', function(leClic){
+                //console.log(`en x sur l'écran : ${leClic.clientX}, en y sur l'écran : ${leClic.clientY}`);
+                //console.log(leClic.target);
+                //leClic.target.style.backgroundColor = 'red';
+                //leClic.target.style.setProperty('font-weight', 'bold');
+                /*
+                if(leClic.target.classList.contains('rouge-gras')){
+                    leClic.target.classList.remove('rouge-gras');
+                }else{
+                    leClic.target.classList.add('rouge-gras');
+                }
+                */
+                //leClic.target.classList.toggle('rouge-gras');
+            });
+
+            /* quand on clique sur le bouton "testez-moi", afficher coucou dans la console */
+
+            s('button.testez-moi').addEventListener('click', function(event){
+                /* 
+                le clic sur le bouton ne déclenche pas le clic sur la page, 
+                l'évènement est stoppé juste après le clic sur le boutton, on évite ainsi 
+                le "bubbling" propre aux clics "superposés"
+                */
+                event.stopPropagation();
+                console.log('coucou');
+            });
+
+            let checkP = s('#checkP');
+            let allP = sAll('p:not(p#special)');
+            checkP.addEventListener('click', function(){
+                console.log(allP);
+            });
+
+            allP.forEach(function(paragraphe){
+                console.log(paragraphe);
+                paragraphe.addEventListener('click', function(){
+                    s('#showP').innerHTML = this.innerText;
+                });
+            });
+
+            let imgOver = s('#imgOver');
+            console.log(imgOver.nextElementSibling);
+
+            imgOver.addEventListener('mouseenter', function(){
+                //../images/pip-boy-thumb-down.png
+                this.setAttribute('src', '../images/pip-boy-thumb-up.png');
+                this.setAttribute('alt', 'Pip boy avec le bras droit');
+                //this.nextElementSibling.innerHTML = 'Pip boy avec le bras droit';
+                this.parentNode.childNodes.forEach(function(element){
+                    if(element.tagName === 'FIGCAPTION'){
+                        element.innerHTML = 'Pip boy avec le bras droit';
+                    }
+                });
+            });
+            
+            imgOver.addEventListener('mouseleave', function(){
+                this.setAttribute('src', '../images/pip-boy-thumb-down.png');
+                this.setAttribute('alt', 'Pip boy sans le bras droit');
+                //this.nextElementSibling.innerHTML = 'Pip boy sans le bras droit';
+                this.parentNode.childNodes.forEach(function(element){
+                    if(element.tagName === 'FIGCAPTION'){
+                        element.innerHTML = 'Pip boy sans le bras droit';
+                    }
+                });
+            });
+
+
         } );
     </script>
 </head>

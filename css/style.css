@@ -5,3 +5,8 @@
 *, *::before, *::after{
     box-sizing: border-box;
 }
+
+.rouge-gras{
+    font-weight: bold;
+    color: rgb(255, 0, 0)
+}

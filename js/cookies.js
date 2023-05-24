@@ -1,4 +1,3 @@
-let cookieValue = 'Nico';
 /*
 let dateNow = new Date();
 console.log(dateNow);
@@ -12,13 +11,9 @@ console.log(dateNow.toLocaleString());
 console.log(dateNow.toDateString());
 console.log(dateNow.toUTCString());
 console.log(dateNow.toLocaleDateString());
-*/
 
-/*
 let valDays = 24 * 60 *60;
-
 document.cookie = `userTest=titi; max-age=${valDays}; path=/; Samesite=Strict; Secure`;
-
 console.log(document.cookie);
 */
 
@@ -40,7 +35,8 @@ function getCookie(name){
 }
 /*
 setCookie('test', 'toto', 1);
-setCookie('test2', 'toto2', 1);*/
+setCookie('test2', 'toto2', 1);
 console.log(document.cookie);
 console.log(getCookie('test'));
 console.log(getCookie('jean'));
+*/

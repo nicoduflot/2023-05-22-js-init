@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formation Javascript ES6</title>
+    <script src="../js/cookies.js"></script>
     <script>
         console.log('début du chargement de la page');
         window.addEventListener('DOMContentLoaded', function(){
@@ -192,6 +193,26 @@
                 </p>
                 <p>
                     Username actuel en local : <span id="datalocal"></span>
+                </p>
+            </article>
+            <article>
+                <h2>Cookies</h2>
+                <p>
+                    <label>Username</label> 
+                    <input id="cookieUser" />
+                </p>
+                <p>
+                    <button id="btnCookie">
+                        Enregistrer username en cookie
+                    </button>
+                </p>
+                <p>
+                    <button id="btnCookieDelete">
+                        Supprimer username des cookies
+                    </button>
+                </p>
+                <p>
+                    Username actuel en cookie : <span id="datacookie"></span>
                 </p>
             </article>
         </section>

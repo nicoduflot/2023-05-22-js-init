@@ -10,6 +10,8 @@
         window.addEventListener('DOMContentLoaded', function(){
             console.log('on lance le script après le chargement de la page');
 
+            /* sessionStorage */
+
             /* on vérifie si sessionUserName existe déjà */
             if(sessionStorage.getItem('sessionUserName')){
                 document.querySelector('span#datasession').innerHTML = sessionStorage.getItem('sessionUserName');
@@ -42,11 +44,41 @@
                 }
             });
 
+            /* localstorage */
+
+            /* on vérifie si sessionUserName existe déjà */
+            if(localStorage.getItem('localUserName')){
+                document.querySelector('span#datalocal').innerHTML = localStorage.getItem('localUserName');
+            }
+
+            /* on récupère dans une variable l'objet qui représente le bouton avec l'id btnSession */
+            let btnLocal = document.querySelector('#btnLocal');
+
+            let btnLocalDelete = document.querySelector('#btnLocalDelete');
+            //console.log(btnSession);
+            /* on récupère l'élément de formulaire sessionUser */
+            let localUser = document.querySelector('#localUser');
+            /* on abonne btnSession à un écouteur d'évènement, l'évènement écouté est le click sur le bouton */
+
+            btnLocal.addEventListener('click', function(){
+                let inputValue = localUser.value;
+                localUser.value = '';
+                if(inputValue !== ''){
+                    localStorage.setItem('localUserName', inputValue);
+                    document.querySelector('span#datalocal').innerHTML = localStorage.getItem('localUserName');
+                }
+            });
+
+            btnLocalDelete.addEventListener('click', function(){
+                if(localStorage.getItem('localUserName')){
+                    localStorage.removeItem('localUserName');
+                    document.querySelector('span#datalocal').innerHTML = '';
+                }
+            });
 
         });
     </script>
 </head>
-
 <body>
     <header>
         <h1>Formation Javascript</h1>
@@ -140,6 +172,26 @@
                 </p>
                 <p>
                     Username actuel en session : <span id="datasession"></span>
+                </p>
+            </article>
+            <article>
+                <h2>localStorage</h2>
+                <p>
+                    <label>Username</label> 
+                    <input id="localUser" />
+                </p>
+                <p>
+                    <button id="btnLocal">
+                        Enregistrer username en local
+                    </button>
+                </p>
+                <p>
+                    <button id="btnLocalDelete">
+                        Supprimer username de la local
+                    </button>
+                </p>
+                <p>
+                    Username actuel en local : <span id="datalocal"></span>
                 </p>
             </article>
         </section>

@@ -9,7 +9,37 @@
     <script src="../js/functions.js"></script>
     <script>
         loaded( function(){
-            
+            let allPModule = sAll('p[data-module]');
+            //console.log(allPModule);
+            allPModule.forEach(function(element){
+                //console.log(element.dataset);
+                switch(element.dataset.module){
+                    case 'color':
+                        // code si module === 'color'
+                        let color = element.dataset.color || '#ff0000';
+                        element.addEventListener('mouseenter', function(){
+                            this.style.setProperty('color', color);
+                        });
+                        element.addEventListener('mouseleave', function(){
+                            this.style.removeProperty('color');
+                        });
+                    break;
+                    case 'font':
+                    case 'magie':
+                        // code si module === 'font' || module === 'magie'
+                        let weight = element.dataset.weight || 'bold';
+                        element.addEventListener('mouseenter', function(){
+                            this.style.setProperty('font-weight', weight);
+                        });
+                        element.addEventListener('mouseleave', function(){
+                            this.style.removeProperty('font-weight');
+                        });
+                    break;
+                    case 'after': 
+                    default : 
+                        // code si module === 'after' || module non présent dans les cas du switch
+                }
+            });
         } );
     </script>
     
@@ -140,7 +170,7 @@
                         vitae voluptate, quasi rerum! Debitis
                         aliquid aliquam et suscipit ab!
                     </p>
-                    <p data-module="font" data-weight="bold">
+                    <p data-module="font" data-weight="thin">
                         Lorem ipsum dolor sit amet,
                         consectetur adipisicing elit.
                         Sed, quidem! Quod sapiente consequatur

@@ -8,11 +8,57 @@
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/functions.js"></script>
     <script>
-        loaded( function(){
-            
-        } );
+        loaded(function() {
+            let numSpan = 1;
+            s('#addSpan').addEventListener('click', function(){
+                let span = document.createElement('span');
+                span.style.setProperty('margin', '1rem');
+                span.style.setProperty('line-height', '2rem');
+                span.style.setProperty('padding', '2px');
+                span.style.setProperty('border-radius', '2px');
+                span.style.setProperty('border', '1px solid #000');
+                let spanContent = document.createTextNode(`span n°${numSpan}`);
+                span.addEventListener('click', function(){
+                    this.remove();
+                });
+                span.append(spanContent);
+                numSpan = numSpan + 1;
+                //console.log(span);
+                s('#test').append(span);
+            });
+
+            s('#resetIndex').addEventListener('click', function(){
+                numSpan = 1;
+            });
+
+            function addItemList(value, input, target){
+                if(value !== ''){
+                    console.log(value);
+                    input.value = '';
+                    let li = document.createElement('li');
+                    li.append(document.createTextNode(value));
+                    target.append(li);
+                    return true;
+                }
+                return false;
+            }
+
+            let inputItem = s('#item');
+            inputItem.addEventListener('keyup', function(event){
+                if(event.key === 'Enter'){
+                    addItemList(inputItem.value, inputItem, s('#toDoList'));
+                }
+            });
+
+            let addItemBtn = s('#addItemBtn');
+            addItemBtn.addEventListener('click', function() {
+                addItemList(inputItem.value, inputItem, s('#toDoList'));
+            });
+
+        });
     </script>
 </head>
+
 <body>
     <header>
         <h1>Formation Javascript</h1>
@@ -117,7 +163,7 @@
                 </header>
                 <main>
                     <div id="list">
-                        <ul id="toDoList" class="list-group">
+                        <ul id="toDoList">
 
                         </ul>
                     </div>
@@ -165,4 +211,5 @@
 <script>
     console.log('le Dom est chargé');
 </script>
+
 </html>

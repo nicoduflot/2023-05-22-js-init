@@ -8,22 +8,55 @@
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/functions.js"></script>
     <script>
-        fetch('../resource/users.json').then(function(reponse){
+        /*
+        fetch('../resource/users.json').then(function (reponse) {
             return reponse.json();
-        }).then(function(data){
+        }).then(function (data) {
             console.log(data);
-        }).catch(function(error){
+        }).catch(function (error) {
             console.error(error);
-        }).finally(function(){
+        }).finally(function () {
             console.log('tentative de connexion à la ressource terminée');
         });
-        
-        loaded( function(){
-            
-            
-        } );
+        */
+        loaded(function () {
+
+            //s('#testFctVide').append(jsonToList());
+
+            sAll('button.read').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+
+                    fetch(btn.dataset.url)
+                    .then(
+                        function(reponse){
+                            console.log(reponse);
+                            return reponse.json();
+                        }
+                    )
+                    .then(
+                        function(data){
+                            console.log(data);
+                            s('#result').innerHTML = '';
+                            s('#result').append(jsonToList(data));
+                        }
+                        )
+                        .catch(
+                            function(error){
+                            s('#result').innerHTML = 'ERROR RESSOURCE';
+                            console.error(error);
+                        }
+                    )
+                    .finally(
+                        function(){
+                            console.log('tentative de connexion à la ressource terminée');
+                        }
+                    );
+                });
+            });
+        });
     </script>
 </head>
+
 <body>
     <header>
         <h1>Formation Javascript</h1>
@@ -101,7 +134,8 @@
                             <button class="read" data-url="../resource/posts.json">
                                 posts.json
                             </button>
-                            <button class="readNYT" data-url="https://api.nytimes.com/svc/movies/v2/reviews/all.json?api-key=ig9jmatc6vzPGucCPAC9aK9v0xxGDdkL">
+                            <button class="readNYT"
+                                data-url="https://api.nytimes.com/svc/movies/v2/reviews/all.json?api-key=ig9jmatc6vzPGucCPAC9aK9v0xxGDdkL">
                                 movie re nyt
                             </button>
                             <button class="read" data-url="../resources/users.json">
@@ -132,20 +166,18 @@
         <section style="display: flex; flex-wrap: wrap;justify-content: space-around;">
             <div style="width: 90%;">
                 <article>
-                    <table id="result">
-                        <thead>
-
-                        </thead>
-                        <tbody>
-
-                        </tbody>
-                    </table>
+                    <div id="result" style="width: 98%;margin-left: auto;margin-right: auto;min-height: 100px; border: 1px solid #000;">
+                        
+                    </div>
+                    <!-- 
+                    <div id="testFctVide" style="width: 98%;margin-left: auto;margin-right: auto;min-height: 100px; border: 1px solid #000;">
+                        
+                    </div>
+                    -->
                 </article>
             </div>
         </section>
     </main>
 </body>
-<script>
-    console.log('le Dom est chargé');
-</script>
+
 </html>

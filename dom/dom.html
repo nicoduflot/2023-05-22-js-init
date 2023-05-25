@@ -14,7 +14,10 @@
                 let span = document.createElement('span');
                 span.style.setProperty('margin', '1rem');
                 span.style.setProperty('line-height', '2rem');
+                span.style.setProperty('cursor', 'pointer');
                 span.style.setProperty('padding', '2px');
+                span.style.setProperty('width', '200px');
+                span.style.setProperty('text-align', 'center');
                 span.style.setProperty('border-radius', '2px');
                 span.style.setProperty('border', '1px solid #000');
                 let spanContent = document.createTextNode(`span n°${numSpan}`);
@@ -130,9 +133,9 @@
                             reset index span
                         </button>
                     </p>
-                    <p id="test">
+                    <div id="test" style="width:98%;display: flex; flex-wrap: wrap;justify-content: start;">
 
-                    </p>
+                    </div>
                 </main>
             </article>
         </section>

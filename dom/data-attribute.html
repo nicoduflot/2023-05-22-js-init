@@ -64,7 +64,41 @@
                 });
             });
 
-            
+            /* tableau p4 */
+
+            let colorNow = 'rouge';
+
+            let allTh = sAll('table#p4 th');
+            allTh.forEach(function(th){
+                th.addEventListener('click', function(){
+                    //console.log(th.dataset);
+                    let coord = th.dataset.col;
+                    //console.log(coord);
+                    for(let i = 6; i > 0; i = i - 1){
+                        let cell = s(`td[data-col="${coord}"][data-row="${i}"]`);
+                        if(!cell.classList.contains('rouge')  &&  !cell.classList.contains('jaune')){
+                            cell.classList.add(colorNow);
+                            /* 
+                            ternaire : if else en une ligne 
+                            (condition du if)? code ou valeur si condition est vraie : code ou valeur si condition est fausse;
+                            */
+                            colorNow = (colorNow === 'rouge')? 'jaune': 'rouge';
+                            break;
+                        }
+                    }
+                });
+            });
+
+            /* vider la grille de jeu */
+            s('#resetP4').addEventListener('click', function(){
+                sAll('table#p4 td').forEach(function(td){
+                    td.classList.remove('rouge');
+                    td.classList.remove('jaune');
+                });
+                colorNow = 'rouge';
+            });
+
+
         } );
     </script>
     
@@ -84,6 +118,23 @@
 
         table#coord tr:nth-last-of-type(odd){
             background-color:bisque;
+        }
+
+        table#p4{
+            border-collapse: collapse;
+        }
+
+        table#p4 td, table#p4 th{
+            border: 1px solid #000;
+            height: 2rem;
+        }
+
+        .jaune{
+            background-color: yellow;
+        }
+
+        .rouge{
+            background-color: darkred;
         }
         
     </style>
@@ -258,16 +309,21 @@
                         </tr>
                     </table>
                     <h3>Grille de puissance 4</h3>
+                    <p>
+                        <button id="resetP4">
+                            Vider la grille
+                        </button>
+                    </p>
                     <table id="p4" width="100%">
                         <thead>
                             <tr>
-                                <th data-col="1" class="text-center"> &darr; </th>
-                                <th data-col="2" class="text-center"> &darr; </th>
-                                <th data-col="3" class="text-center"> &darr; </th>
-                                <th data-col="4" class="text-center"> &darr; </th>
-                                <th data-col="5" class="text-center"> &darr; </th>
-                                <th data-col="6" class="text-center"> &darr; </th>
-                                <th data-col="7" class="text-center"> &darr; </th>
+                                <th data-col="1"> &darr; </th>
+                                <th data-col="2"> &darr; </th>
+                                <th data-col="3"> &darr; </th>
+                                <th data-col="4"> &darr; </th>
+                                <th data-col="5"> &darr; </th>
+                                <th data-col="6"> &darr; </th>
+                                <th data-col="7"> &darr; </th>
                             </tr>
                         </thead>
                         <tbody>

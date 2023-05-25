@@ -8,17 +8,18 @@
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/functions.js"></script>
     <script>
+        fetch('../resource/users.json').then(function(reponse){
+            return reponse.json();
+        }).then(function(data){
+            console.log(data);
+        }).catch(function(error){
+            console.error(error);
+        }).finally(function(){
+            console.log('tentative de connexion à la ressource terminée');
+        });
+        
         loaded( function(){
             
-            fetch('../resource/users.json').then(function(reponse){
-                return reponse.json();
-            }).then(function(data){
-                console.log(data);
-            }).catch(function(error){
-                console.error(error);
-            }).finally(function(){
-                console.log('tentative de connexion à la ressource terminée');
-            });
             
         } );
     </script>

@@ -8,8 +8,74 @@
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/functions.js"></script>
     <script>
+        let randNumber = Math.random();
+        console.log(randNumber);
+        console.log( randNumber*3);
+        console.log( randNumber*3 + 1);
+        //console.log( Math.round(randNumber*8 + 2) );
+        console.log( Math.floor(randNumber*8 + 2) ); /* un nombre avec les limites [2 - 9] */
+        //console.log( Math.ceil(randNumber*8 + 2) );
+
+        /*
+        Promise = créer une fonction asynchrone dont l'éxécution ne stoppe pas 
+        ou ne "fige" pas l'utilisation de la page
+
+        on appelle une fonction asynchrone
+        cette fonction va lancer une fonction qui est une promesse, 
+        cette promesse : qu'elle renvoi un résultat quoi que soit l'issue de son traitement
+        La fonction asynchrone est en attente de réponse de la promesse qui prend du temps et 
+        qui pourrai figer la page
+        */
+
+        /* asyncCall est la fonction déclarée en asynchrone qui va permettre d'appeler une promesse, elle se met en attente de la réponse de la promesse sans impacter le reste du script */
+
+        async function asyncCall(){
+            /* la fonction asynchrone va attendre la réponse d'une autre fonction qui elle attend la réponse d'une promesse */
+            let resCall = await resolveFunction(2);
+            return resCall;
+        }
+
+        function resolveFunction(delai){
+            let randError = Math.floor(Math.random()*3 + 1);
+            //console.log(randError);
+            return new Promise(function(resolve, reject){
+            setTimeout(function(){
+                    if(randError !== 2){
+                        resolve('ça marche');
+                    }else{
+                        reject('ça marche pas');
+                    }
+                },delai*1000);
+            });
+        }
+
+        /* si cette fonction est lancée avant le chargement complet de la page, elle s'éxécute en asynchrone sans gâcher le chargement */
+        /*
+        asyncCall().then(function(message){
+            console.log(message);
+            return 'hourra';
+        }).then(function(toto){
+            console.log(toto);
+        }).catch(function(error){
+            console.error(error);
+        }).finally(function(){
+            console.log('appel de la fonction asynchrone finie');
+        });
+        */
         loaded( function(){
-            
+            s('#btn').addEventListener('click', function(){
+                // appell de la fonction en asynchrone
+                asyncCall().then(function(message){
+                    console.log(message);
+                    return 'hourra';
+                }).then(function(toto){
+                    console.log(toto);
+                }).catch(function(error){
+                    console.error(error);
+                }).finally(function(){
+                    console.log('appel de la fonction asynchrone finie');
+                });
+            });
         } );
     </script>
 </head>
@@ -88,9 +154,6 @@
                         <p>
                             <button id="btn">
                                 Récupérer une info
-                            </button>
-                            <button id="btnTest">
-                                Afficher coucou en console
                             </button>
                         </p>
                         <p id="result">

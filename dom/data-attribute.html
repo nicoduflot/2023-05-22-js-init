@@ -40,6 +40,31 @@
                         // code si module === 'after' || module non présent dans les cas du switch
                 }
             });
+
+            /* tableau des coordonnées */
+            /* récupérer tous les éléments td ayant les attributs data-column et data-line */
+            let coordonnees = sAll('td[data-column][data-line]');
+            console.log(coordonnees);
+            coordonnees.forEach(function(element){
+                //console.log(element.dataset);
+                element.addEventListener('mouseenter', function(){
+                    //console.log(element.dataset);
+                    element.parentNode.style.setProperty('background-color', 'rgba(255, 0, 0, 0.5)');
+                    sAll(`td[data-column="${element.dataset.column}"]`).forEach(function(td){
+                        td.style.setProperty('background-color', 'rgba(255, 0, 0, 0.5)');
+                    });
+                });
+
+                element.addEventListener('mouseleave', function(){
+                    //console.log(element.dataset);
+                    element.parentNode.style.removeProperty('background-color');
+                    sAll(`td[data-column="${element.dataset.column}"]`).forEach(function(td){
+                        td.style.removeProperty('background-color');
+                    });
+                });
+            });
+
+            
         } );
     </script>
     
@@ -49,21 +74,18 @@
             font-weight: bold;
         }
 
-        #carre {
-            width: 100px;
-            height: 100px;
-            background-color: orange;
-            margin: 20px auto;
-            transition: transform 1s;
+        table#coord{
+            border-collapse: collapse;
         }
 
-        .gauche {
-            transform: translateX(calc(-1 * (100vw/2 - 100px)));
+        table#coord tr{
+            background-color: aquamarine;
         }
 
-        .droite {
-            transform: translateX(calc(100vw/2 - 100px));
+        table#coord tr:nth-last-of-type(odd){
+            background-color:bisque;
         }
+        
     </style>
 </head>
 <body>

@@ -10,7 +10,57 @@
     <script>
         loaded( function(){
             console.log('coucou, la fonction loaded marche bien !');
-            let header = s('body > header');
+            let header = s('body > header'); 
+            /* on utilise querySelector avec le sélecteur CSS : le header enfant direct (ou de premier niveau) de body 
+            
+            sélecteur CSS :
+            ATTENTION : en CSS, on impacte tous les éléments correspondants aux sélecteurs écrit
+                - Avec querySelector on atteindra le premier élément correspondant au sélecteur écrit
+                - Avec querySelectorAll on atteindra tous les éléments correspondant au sélecteur écrit
+            
+            sélecteurs simples : balise, identifiant et par classe
+                p                   => tous les éléments p rencontrés dans le document
+                                    pas de caractère spécial devant l'élément donc il s'agit d'une balise
+                #special            => l'élément ayant comme attribut id="special"
+                                    le caractère # indique qu'on se réfère à l'id
+                                    => les id sont uniques dans la page
+                .titreDeChapitre    => le premier élément ayant au moins la class="titreDeChapitre" 
+                                    le caractère . indique qu'on se réfère à une classe
+                                    => ATTENTION : si un élément class="titreDeChapitre toto tata" comme il possède au moins
+                                    la classe titreDeChapitre alors il sera trouvé
+            Sélecteur avancés : selon les attributs                                  
+                [data-test]                     => les éléments ayant au moins un attribut nommé data-test
+                [alt]                           => les éléments ayant au moins un attribut alt
+                [data-test="toto"]              => les éléments ayant au moins un attribut nommé data-test="toto"
+                [data-col][data-line]           => les éléments ayant au moins un attribut data-col ET un attribut data-line
+                [data-col="3"][data-line]       => les éléments ayant au moins un attribut data-col="3" ET un attribut data-line
+                [data-col][data-line="2"]       => les éléments ayant au moins un attribut data-col ET un attribut data-line="2"
+                [data-col="3"][data-line="2"]   => les éléments ayant au moins un attribut data-col="3" ET un attribut data-line="2"
+
+            Sélecteur avancés : mélange des sélecteurs simples et ou de sélecteurs avancés
+                h3.titreDeChapitre  => tous les titre h3 ayant la classe titreDeChapitre
+                                    si l'élément et la classe sont collé, c'est que l'élément doit avoir au moins cette classe
+                article #special    => un élément avec id="special" enfant direct OU indirect d'un élément article
+                                    si l'élément et l'id recherché sont séparés, cela indique une filiation directe ou indirecte
+                main > p            => tous les éléments p enfants directs d'un élément main
+                                    le chevron fermant > entre les deux éléments indique une filiation directe.
+                p#special           => un élément p avec id="special"
+                .toto.tata          => un élément ayant au moins les deux classes suivantes toto et tata
+                .toto .tata         => un élément ayant au moins la classe tata enfant direct ou indirect d'un élément ayant au moin la classe toto
+            
+            Pseudo sélecteurs (sélécteur qui permet des "tri" ou des "filtres" sur des sélecteurs )
+                p:nth-of-type(odd)  => tous les paragraphes du document en position impaire
+                                    nth-child() le(s) nième(s) enfant(s)
+                                    les paramètres : 
+                                        odd => impaire - event => paire, Xn => tous les X enfants , Y => le Yème
+                                        2n+1
+
+                article:last-child:nth-of-type(4n+3)    => l'article doit être le dernier article et le troisième article d'une ligne de 4
+                                                        paramètres :    4n => le nombre d'élément par ligne
+                                                                        +3 => le troisième de la ligne
+
+            */
+            
             console.log(header);
             let allLinks = sAll('a');
             console.log(allLinks);

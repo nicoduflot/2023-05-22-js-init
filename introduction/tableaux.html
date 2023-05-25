@@ -63,16 +63,22 @@
             console.log(`la valeur actuelle dans cars est ${valeur}`);
         }
         
+        let prenom = 'toto';
+        
         /* l'objet litéral */
+        console.log('---- obj litéral ---');
+
         let obj = {
             nom: 'Sno',
             prenom: 'Jon',
             job: 'Le mur',
+            age: 15,
             connaissance: function(){
                 return `you know nothing ${this.prenom} ${this.nom}`;
             }
         };
-        
+
+        //console.table(console);
         console.log(obj);
         console.log(obj.nom);
         console.log(obj.connaissance());

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Javascript ES6</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/functions.js"></script>
+    <script>
+        loaded(function(){
+            /*
+            Collections : dictionnaires (ou tableaux associatifs) 
+            les index sont en fait des clefs
+            Elles sont créées (entre autre) par la class Map()
+            */
+
+            let map = new Map();
+            console.log(map);
+            map.set('lastName', 'Doe');
+            map.set('firstName', 'John')
+                .set('email', 'john.doe@missing.com')
+                .set('phone', '0123456789')
+                .set('detail', 'none');
+            
+            console.log(map);
+            console.log(map.size);
+            console.log(map.get('firstName'));
+            
+            map.forEach(function(value, key){
+                console.log(`${value}, ${key}`);
+            });
+            
+            map.delete('detail');
+            console.log(map);
+
+            if(map.has('email')){
+                console.log(`l'email est ${map.get('email')}`);
+            }else{
+                console.log(`l'email n'est pas dans l'objet`);
+            }
+
+            if(map.has('detail')){
+                console.log(`Detail : est ${map.get('detail')}`);
+            }else{
+                console.log(`le detail n'est pas dans l'objet`);
+            }
+
+            /* map.clear() */
+
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Formation Javascript</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                Bases
+                <ul>
+                    <li>
+                        <a href="../introduction/index.html">Intro</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/tableaux.html">Tableaux</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/fonctions.html">Fonctions</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/destructuration.html">Destructuration</a>
+                    </li>
+                    <li>
+                        <a href="../introduction/storage.html">storage</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                DOM
+                <ul>
+                    <li>
+                        <a href="../dom/index.html">Le DOM</a>
+                    </li>
+                    <li>
+                        <a href="../dom/dom.html">Créer dans le DOM</a>
+                    </li>
+                    <li>
+                        <a href="../dom/css.html">DOM et CSS</a>
+                    </li>
+                    <li>
+                        <a href="../dom/data-attribute.html">Dataset</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                AJAX
+                <ul>
+                    <li>
+                        <a href="../ajax/index.html">AJAX</a>
+                    </li>
+                    <li>
+                        <a href="../ajax/fetch.html">Fetch</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                POO
+                <ul>
+                    <li>
+                        <a href="../poo/index.html">POO</a>
+                    </li>
+                    <li>
+                        <a href="../poo/collection.html">Collection</a>
+                    </li>
+                    <li>
+                        <a href="../poo/module.html">Module</a>
+                    </li>
+                    <li>
+                        <a href="../poo/classe.html">Classe</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <article>
+                <h2>POO : Les collections</h2>
+                <p>
+                    Les collections sont des structures - objets - proches des tableaux mais qu'on manipule comme des objets
+                </p>
+                <p>
+                    tout est dans le code et la console
+                </p>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>

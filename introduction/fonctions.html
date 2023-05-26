@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formation Javascript ES6</title>
     <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/functions.js"></script>
     <script>
         /* une fonction : n'est pas rattachée à une classe */
         let intNumber = parseInt('12'); // la chaîne de caractère 12 est transformée en nombre 12
@@ -140,6 +141,37 @@
         console.table(tabAsso);
 
         /* fin attention */
+
+        /* test fonction setInterval */
+        function compteur(){
+            /*
+            let timeStamp = new Date();
+            let res = timeStamp.getSeconds();
+            console.log(res);
+            */
+
+            let rand14 = Math.floor(Math.random()*4 + 1);
+            let rand13 = Math.floor(Math.random()*3 + 1);
+            let val = '';
+            for(let i = 0; i < rand13; i = i + 1){
+                val = val + '1';
+            }
+            val = parseInt(val)*rand14;
+            val = val + '';
+
+            sAll('table#test td').forEach(function(td){
+                td.parentNode.style.backgroundColor = 'white';
+            });
+            sAll('table#test td').forEach(function(td){
+                if(td.innerText === val){
+                    td.parentNode.style.backgroundColor = 'orange';
+                }
+            });
+
+            s('table#test caption').innerHTML = `n° : ${val}`;
+        }
+
+        setInterval(compteur, 1000);
     </script>
 </head>
 
@@ -223,6 +255,40 @@
                 <p>
                     Tout est dans la console
                 </p>
+                <style>
+                    table#test{
+                        width: 200px;
+                        line-height: 1rem;
+                        text-align: center;
+                        border-collapse: collapse; 
+                        border: 1px solid #000;
+                    }
+
+                    table#test tr{
+                        border: 1px solid #000;
+                    }
+                </style>
+                <table id="test">
+                    <caption>r</caption>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>22</td>
+                        <td>33</td>
+                        <td>44</td>
+                    </tr>
+                    <tr>
+                        <td>111</td>
+                        <td>222</td>
+                        <td>333</td>
+                        <td>444</td>
+                    </tr>
+                </table>
             </article>
         </section>
     </main>

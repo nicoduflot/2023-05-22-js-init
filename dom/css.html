@@ -8,8 +8,28 @@
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/functions.js"></script>
     <script>
+
+    function randBgColor(element, ...tabColors){
+        //let tabColor = ['red', 'blue', 'magenta', 'darkred'];
+        let randIndex = Math.floor(Math.random()*tabColors.length);
+        //console.log(randIndex);
+        element.style.setProperty('background-color', tabColors[randIndex]);
+    }
+
         loaded( function(){
-            
+            let carre = s('#carre');
+            s('#gauche').addEventListener('click', ()=>{
+                carre.className = 'gauche';
+                randBgColor(carre, 'red', 'blue', 'magenta', 'darkred', 'bisque');
+            });
+            s('#centre').addEventListener('click', ()=>{
+                carre.removeAttribute('class');
+                randBgColor(carre, 'orange');
+            });
+            s('#droite').addEventListener('click', ()=>{
+                carre.className = 'droite';
+                randBgColor(carre, 'red', 'blue', 'magenta', 'darkred');
+            });
         } );
     </script>
     <style>
@@ -121,14 +141,14 @@
                         earum laudantium tenetur quidem aliquid
                         rem quos voluptatibus a?
                     </p>
-                    <divrole="group">
+                    <div>
                         <button id="btnClasse">
                             Ajouter de la couleur en classe
                         </button>
                         <button id="btnClasseBg">
                             Ajouter un background
                         </button>
-                    </divrole=>
+                    </div>
 
                     <p id="cibleClasse" class="times">
                         Lorem ipsum dolor sit, amet consectetur
@@ -138,13 +158,14 @@
                         earum laudantium tenetur quidem aliquid
                         rem quos voluptatibus a?
                     </p>
-                    <prole="group">
-                        <button type="button" class="btn btn-primary" id="gauche">Gauche</button>
-                        <button type="button" class="btn btn-primary" id="centre">Centre</button>
-                        <button type="button" class="btn btn-primary" id="droite">Droite</button>
-                    </prole=>
+                    <p role="group">
+                        <button type="button" id="gauche">Gauche</button>
+                        <button type="button" id="centre">Centre</button>
+                        <button type="button" id="droite">Droite</button>
+                    </p role=>
+                    <hr />
                     <div id="carre">
-
+                        
                     </div>
                 </main>
             </article>

@@ -87,6 +87,53 @@
                     this.couleur = couleur;
                 }
 
+                /* 
+                un attribut privé doit être seulement accessible à l'interieur de la classe. 
+                si on a besoin d'intervenir dessus via une instance de la classe, il faut des méthodes particulières 
+                getter et les setter
+                getter : méthode pour accéder à l'attribut privé
+                setter : méthode pour modifier l'attribut privé
+                */
+
+                /* getter pour _marque */
+                get getMarque(){
+                    /* 
+                    le getter devient l'équivalent d'un attribut de Voiture, on l'appelera ainsi :
+                    instanceDeLaCLasse.getMarque;
+                    au contraire d'une méthode normale getMarque();
+                     */
+                    return this._marque;
+                }
+
+                /* setter de _marque */
+                set setMarque(marque){
+                    /* 
+                    le setter devient l'équivalent d'un attribut de Voiture, on l'utilisera ainsi :
+                    instanceDeLaCLasse.setMarque = 'uneMarque';
+                    au contraire d'une méthode normale setMarque('uneMarque');
+                     */
+                    this._marque = marque;
+                }
+
+                /* toutes les voitures démarrent */
+                demarrer(){
+                    return `La ${this.constructor.name} démarre`;
+                }
+                
+                /* toutes les voitures avancent */
+                avancer(){
+                    return `La ${this.constructor.name} avance`;
+                }
+
+                /* this.constructor.name fait référence au nom du constructeur, comme le constructeur ici est celui de la class Voiture, son nom est donc celui de la classe */
+
+                /* Méthode statique */
+                /*
+                Appartient à la classe, partagée entre toutes 
+                les instances d'une classe identique MAIS :
+                elle ne peut pas être appelée à partir d'une instance, 
+                seulement à partir de la classe directement
+                */
                 static klaxonner(){
                     return `POUEEEET POUEEET !`;
                 }
@@ -95,8 +142,76 @@
             console.log(Voiture);
             console.log(Voiture.klaxonner());
 
-            let maVoiture = new Voiture('opel', 'Corsa', 'rouge');
+            let maVoiture = new Voiture('Opel', 'Corsa', 'Rouge');
             console.log(maVoiture);
+            console.log(maVoiture.modele);
+            /* console.log(maVoiture._marque); */
+            /* normalement un attribut privé ne peut être accéder directement depuis l'instance de la classe */
+            console.log(maVoiture.getMarque);
+            maVoiture.setMarque = 'Fiat';
+            maVoiture.modele = 'Tipo';
+            console.log(maVoiture.getMarque);
+            console.log(maVoiture);
+            console.log(maVoiture.demarrer());
+            console.log(maVoiture.avancer());
+
+            /* les classes étendues */
+            /* 
+            les voitures partagent plein de choses en communs, 
+            mais certaines utilisations requiers des dérivations du modèle original
+            Avec les classe, on va partir d'une classe mère, pour créer des classes filles, 
+            dites classes étendues
+            Une classe étendue récupère par défaut tous les attributs et méthodes de la classe mère.
+            Il est possible d'ajouter des attributs et des méthodes propres à la classe fille 
+            et de surcharger les méthodes héritée de la classe mère.
+            */
+
+            class Ambulance extends Voiture{
+                /*
+                la classe Ambulance est étendue de Voiture
+                on n'a pas besoin de réécrire tout ce qui fait de l'Ambulance une Voiture
+                il faut un constructeur, il doit être semblable à celui de voiture
+                */
+                constructor(marque, modele, couleur){
+                    /* récupérer l'initialisation des base des attributs de la classe mère */
+                    super(marque, modele, couleur);
+                    /* si des attributs doivent changer ou être mis par défaut */
+                    if(this.couleur.toLowerCase() !== 'blanc'){
+                        this.couleur = 'Blanc';
+                    }
+                    /* déclaration des attributs propres à la classe fille */
+                    this.sirene = false;
+                }
+
+                /* 
+                si une méthode de la classe mère doit être un peut diférente quand
+                elle est utilisée par la classe fille, il faut la surcharger
+                */
+
+                demarrer(){
+                    let bruit = '';
+                    bruit = (this.sirene)? ' PIN PON PIN PON PIN PON !' : ' Vrrrr rrrr rrrr' ;
+                    return `${super.demarrer()}${bruit}`;
+                }
+
+                /*
+                On peut complètement surchrager donc redéfinir une méthode de la classe mère : 
+                changer de comportement ou de retout
+                */
+
+                static klaxonner(){
+                    return 'POUEEEEEEEEEEEEEEEEEEEEEEEEEEEET !';
+                }
+
+            }
+
+            let monAmbulance = new Ambulance('Citroën', 'DS', 'Noire');
+            console.log(monAmbulance);
+            console.log(monAmbulance.demarrer());
+            console.log(monAmbulance.sirene = true);
+            console.log(monAmbulance.demarrer());
+            console.log(Voiture.klaxonner());
+            console.log(Ambulance.klaxonner());
 
         });
     </script>

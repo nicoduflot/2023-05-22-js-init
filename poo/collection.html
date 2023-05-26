@@ -47,7 +47,60 @@
             }
 
             /* map.clear() */
+            /*
+             .entries()  => équivalent d'un .entries() d'un tableau, renvoie les clefs et les valeurs de la collection
+             .keys()     => équivalent d'un for in de tableau, renvoie les clefs de la collection
+             .values()   => équivalent d'un for of de tableau, renvoie les valeurs de la collection
 
+            Map() implémente déjà un "design pattern" nomé Iterator
+            Un itérator permet de parcourir les données de l'objet comme 
+            s'il s'agissait d'un tableau
+            Iterator => Itérable => structure d'itération (for / while .forEach() / etc)
+            */
+
+            console.log('---------- .entries() avec Map ----------');
+            for(let [key, value] of map.entries()){
+                /*
+                entries renvoie ['clef de l'entrée de la Map', 'Valeur à la clef de la map']
+                let [a, b] = [1, 2];
+                a === 1
+                b === 2
+                */
+               console.log(` ${key} : ${value}`);
+            }
+            console.log('---------- .keys() avec Map ----------');
+            for(let key of map.keys()){
+                console.log(` clef : ${key}`);
+            }
+            
+            console.log('---------- .values() avec Map ----------');
+            for(let value of map.values()){
+                console.log(` valeur : ${value}`);
+            }
+            
+            /* collection se comporte comme un tableau à valeur sans index => classe Set() */
+            let set = new Set();
+            console.log(set);
+            set.add('Jon').add('Aria').add('Sansa').add('Rob').add('Joffrey').add('Sansa').add('Hodor')
+            .add('Brandon').add('Oona');
+            set.add('Jon');
+            console.log(set);
+            
+            console.log('---------- .entries() avec Set ----------');
+            for(let [key, value] of set.entries()){
+                console.log(` ${key} : ${value}`);
+            }
+            
+            console.log('---------- .keys() avec Set ----------');
+            for(let key of set.keys()){
+                console.log(`clef : ${key}`);
+            }
+            
+            console.log('---------- .values() avec Set ----------');
+            for(let value of set.values()){
+               console.log(`valeur : ${value}`);
+            }
+            
         });
     </script>
 </head>
